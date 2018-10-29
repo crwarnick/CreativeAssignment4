@@ -57,7 +57,28 @@ body
     width: 150px;
 }
 
+.dImage
+{
+    width: 150px;
+}
+
+.aImage
+{
+    width: 150px;
+}
+
+.pImage
+{
+    width: 150px;
+}
+
 .rImage:hover
+{
+    box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
+    cursor: pointer;
+}
+
+.aImage:hover
 {
     box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
     cursor: pointer;
