@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+        <script src = "javascripts/holiday.js"></script>
+        <link rel = "stylesheet" type = "text/css" href = "stylesheets/holiday.css">
+        <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Caveat Brush' rel='stylesheet'>
+        <meta charset = "utf-8">
+        <title>Halloween Planner</title>        
+    </head>
+    <body>
+        <audio controls autoplay>
+            <source src = "wickedwitchlaugh.mp3" type = "audio/mp3">
+        </audio>
+        <iframe src = "wickedwitchlaugh.mp3" allow = "autoplay"></iframe>
+        <div id = "all" ng-app = "app" ng-controller = "appCtrl">
+            <h1>
+                <img id = "ghost" src = "https://melbournechapter.net/images/clipart-ghost-clipart-2.png">
+                Collaborative Halloween Planner
+                <img id = "ghost2" src = "https://melbournechapter.net/images/clipart-ghost-clipart-2.png">
+            </h1>
+            <div class = "column" id = "toDo">
+                <h2>To Do</h2>
+                <form>
+                    To Do: <br><input class = "input" type = "text" ng-model = "toDo" value = ""><br>
+                    Notes: <br><input class = "input" type = "text" ng-model = "notes" value = ""><br><br>
+                    <button class = "submit" ng-click = "addToDo()">Add to List</button><br><br>
+                </form>
+                <ul class = "list">
+                    <li class = "toDoList" ng-repeat = "item in toDos">
+                        <h3>{{item.ToDo}}  <input class = "checkbox" type = "checkbox"></h3>
+                        <h4>{{item.Notes}}</h4><br><br>
+                    </li>
+                </ul>
+            </div>
+            <div class = "column">
+                <h2>To Make</h2>
+                <form id = "recipe">
+                    Recipe Name: <br><input class = "input" type = "text" ng-model = "rName" value = ""><br>
+                    Recipe Image Url: <br><input class = "input" type = "url" ng-model = "riUrl" value = ""><br>
+                    Recipe Url: <br><input class = "input" type = "url" ng-model = "rUrl" value = ""><br><br>
+                    <button class = "submit" ng-click = "addRecipe()">Add to List</button><br><br>
+                </form>
+                <ul class = "list">
+                    <li class = "tomakeList" ng-repeat = "item in recipes">
+                        <a href = "{{item.RUrl}}">
+                            <img class = "rImage" ng-src = "{{item.RIUrl}}">
+                        </a>
+                        <h3>{{item.RName}}</h3><br><br>
+                    </li>
+                </ul>
+            </div>
+            <div class = "column">
+                <h2>Decorations</h2>
+                <form id = "decor">
+                    Decoration Name: <br><input class = "input" type = "text" ng-model = "dName" value = ""><br>
+                    Decoration Image Url: <br><input class = "input" type = "url" ng-model = "diUrl" value = ""><br><br>
+                    <button class = "submit" ng-click = "addDecor()">Add to List</button><br><br>
+                </form>
+                <ul class = "list">
+                    <li class = "decorList" ng-repeat = "item in decors">
+                        <img class = "dImage" ng-src = "{{item.DIUrl}}">
+                        <h3>{{item.DName}}</h3><br><br>
+                    </li>
+                </ul>
+            </div>
+            <div class = "column">
+                <h2>Activities</h2>
+                <form id = "activity">
+                    Activity: <br><input class = "input" type = "text" ng-model = "aName" value = ""><br>
+                    Activity Image Url: <br><input class = "input" type = "url" ng-model = "aiUrl" value = ""><br>
+                    Activity Url: <br><input class = "input" type = "url" ng-model = "aUrl" value = ""><br><br>
+                    <button class = "submit" ng-click = "addActivity()">Add to List</button><br><br>
+                </form>
+                <ul class = "list">
+                    <li id = "activitiesList" ng-repeat = "item in activities">
+                        <a href = "{{item.AUrl}}">
+                            <img class = "aImage" ng-src = "{{item.AIUrl}}">
+                        </a>
+                        <h3>{{item.AName}}</h3><br><br>
+                    </li>
+                </ul>
+            </div>
+            <div class = "column">
+                <h2>To Invite</h2>
+                <form id = "people">
+                    Name: <br><input class = "input" type = "text" ng-model = "pName" value = ""><br>
+                    Image Url: <br><input class = "input" type = "url" ng-model = "piUrl" value = ""><br>
+                    Phone Number: <br><input class = "input" type = "tel" ng-model = "pNumber" value = ""><br><br>
+                    <button class = "submit" ng-click = "addPerson()">Add to List</button><br><br>
+                </form>
+                <ul class = "list">
+                    <li id = "peopleList" ng-repeat = "p in people">
+                        <img class = "pImage" ng-src = "{{p.PIUrl}}">
+                        <h3>{{p.PName}}</h3>
+                        <h4>{{p.PNumber}}</h4><br><br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
